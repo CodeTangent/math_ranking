@@ -1,0 +1,4 @@
+https://supabase.com
+project URL: https://jxtgbnrfiapnnqmckbbk.supabase.co
+Publishable Key: sb_publishable_IlKSTU1vJsJ7bRGFxn2Yow_8t2g98D1
+direct connection string: postgresql://postgres:[YOUR-PASSWORD]@db.jxtgbnrfiapnnqmckbbk.supabase.co:5432/postgres
