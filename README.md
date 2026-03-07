@@ -34,7 +34,7 @@ Meu objetivo é me tornar Cientista de Dados, criando soluções preditivas que 
 
 [Github](https://github.com/justjuaum)
 
-    - Sou estudante de Engenharia da Computação, atualmente no primeiro ano de curso durante
+Sou estudante de Engenharia da Computação, atualmente no primeiro ano de curso durante
 o desenvolvimento desta plataforma. Possuo base até o momento em lógica de programação
 com JavaScript, um pouco de html e css e estou fazendo alguns cursos de Java no momento. 
 O Math Rank é o pontapé inicial que dei para entrar de vez no mundo do desenvolvimento de 
