@@ -2,19 +2,17 @@
 # Usar parâmetro de requisição para testes: GET
 # Se quiser testar com POST usar linha comentada que deixei no código
 
-
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
-credenciais_do_usuario = [
-    {"email": "user", "password": "123"}
-]
+credenciais_do_usuario = {"email": "user", "password": "123"}
 
-#@app.route("/login" methods=["POST"])
-@app.route("/login")
+
+@app.route("/login", methods=["POST"])
+#@app.route("/login")
 def login():
     dados_do_usuario = request.json
 
@@ -26,4 +24,4 @@ def login():
         return jsonify(True)
     return jsonify(False)
 
-app.run()
+app.run(port=5500)

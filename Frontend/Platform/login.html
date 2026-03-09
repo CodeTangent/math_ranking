@@ -9,12 +9,14 @@
     <h1>Aqui será o login ou criação de conta</h1>
     <form action="#" method="POST">
         <label for="username">Usúario</label>
-        <input type="text" placeholder="email@exaple.com" name="username" required>
+        <input type="text" id="email" placeholder="email@exaple.com" name="username" required>
 
         <label for="password">Senha</label>
-        <input type="text" placeholder="***********" name="password" required>
+        <input type="text" id="password" placeholder="***********" name="password" required>
 
-        <button type="submit">Entrar</button>
+        <button type="button" onclick="login()">Entrar</button>
     </form>
-</body>
+
+    <script src="SCRIPT/script.js"></script>
+    </body>
 </html>
