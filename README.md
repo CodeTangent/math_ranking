@@ -65,7 +65,19 @@ O Math Rank é um projeto que idealizei e também meu primeiro projeto colaborat
 
 Tenho interesse em tecnologias como visão computacional, firmware, drivers e sistemas inteligentes, especialmente em áreas onde software e hardware se encontram.
 
-- Caiky XXXXX - Link do github - experiência até o momento.
+- Caiky H. Souza
+
+[GitHub](https://github.com/Caiky-Souza)
+[LinkedIn](https://www.linkedin.com/in/caiky-souza)
+
+Sou graduando em Engenharia de Software e um entusiasta por tecnologia. 
+Gosto de aprender como as coisas funcionam debaixo do capô. Sou autodidata e busco aprimorar meus conhecimentos em desenvolvimento de software e Cybersecurity.
+
+Atualmente estou desenvolvendo minhas habilidades com Python, porém já utilizei de tecnologias Frontend básicas, incluindo HTML, CSS e Javascript, e um pouco de C durante meu estudo do CS50x. 
+
+Além disso, também obtive conhecimento sobre os fundamentos de Redes e Linux.
+
+O Math Rank é minha primeira oportunidade de atuar em um projeto em colaboração com uma equipe, contribuindo para a consolidação de meu conhecimento e meu ingresso para me tornar um desenvolvedor melhor.
 
 ## 🗄️Banco de dados🗄️
 - Vinicius Eloi
