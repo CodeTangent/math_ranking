@@ -9,7 +9,7 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
     background-color: #000000;  /* Fundo escuro principal */
-    color: #e0e0e0;             /* Texto claro */
+    color: #ffffff;             /* Texto claro */
 }
 
 .container {
@@ -30,8 +30,16 @@ header {
     justify-content: space-between;
 }
 
+.primary_color {
+    color: #00c100;
+}
+
+.secondary_color {
+    color: #45595a;
+}
+
 ._logo img {
-    width: 150px;
+    width: 100px;
     display: block;
     filter: brightness(0.9);     /* Ajuste para logo claro em fundo escuro */
 }
@@ -45,11 +53,11 @@ header {
 }
 
 ._menu a:hover, ._login a:hover {
-    color: #bb86fc;               /* Roxo suave como destaque */
+    color: #00ff00;               /* Roxo suave como destaque */
 }
 
 ._login a:last-child {
-    background-color: #bb86fc;    /* Roxo como cor de ação */
+    background-color: #00ff00;    /* Roxo como cor de ação */
     color: #121212;               /* Texto escuro para contraste */
     padding: 0.5rem 1rem;
     border-radius: 5px;
@@ -57,8 +65,8 @@ header {
 }
 
 ._login a:last-child:hover {
-    background-color: #9b67db;    /* Tom mais escuro no hover */
-    color: #121212;
+    background-color: #008500;    /* Tom mais escuro no hover */
+    color: #ffffff;
 }
 
 /* Hero section */
@@ -103,12 +111,12 @@ header {
 
 .btn:hover {
     background-color: transparent;
-    color: #bb86fc;
-    border-color: #bb86fc;
+    color: #00ff00;
+    border-color: #008500;
 }
 
 .btn-primary {
-    background-color: #bb86fc;
+    background-color: #00ff00;
     color: #121212;
 }
 
@@ -140,7 +148,7 @@ header {
     display: block;
     width: 80px;
     height: 4px;
-    background: #bb86fc;          /* Roxo */
+    background: #008500;          /* Roxo */
     margin: 0.5rem auto 0;
     border-radius: 2px;
 }
@@ -185,8 +193,8 @@ header {
 
 /* Footer */
 footer {
-    background-color: #0a0a0a;    /* Mais escuro que o body */
-    color: #aaa;
+    background-color: #002500;    /* Mais escuro que o body */
+    color: #ffffff;
     text-align: center;
     padding: 2rem;
     font-size: 0.9rem;
