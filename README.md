@@ -83,6 +83,10 @@ O Math Rank é minha primeira oportunidade de atuar em um projeto em colaboraç�
 ## 🗄️Banco de dados🗄️
 - Vinicius Eloi
   
+Sempre tive ideias para criar ferramentas que otimizassem meu trabalho diário, por isso amo programar. Posso criar inúmeras ferramentas que podem me ajudar e a outras pessoas. Aos dezessete anos, decidi estudar inglês por conta própria. Hoje, tenho um nível avançado no inglês e acesso a muito mais conteúdo do que apenas em português brasileiro. Acho isso incrível e, claro, me ajuda bastante quando estou programando ou aprendendo algo novo.
+
+Comecei estudando tecnologia como HTML, CSS and JavaScript. Senti mais afinidade com framework angular and typescript, então é com essa ferramente que estou construindo aplicações freelancers. Crio minhas APIS usando Express JS e uso MySQL no banco. 
+
 [Github](https://github.com/vini0112) - [LinkedIn](https://www.linkedin.com/in/vin%C3%ADcius-silva-26b715321)
 
 ## Funcionalidades - MVP (Minimum Viable Product)
