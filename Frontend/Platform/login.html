@@ -45,10 +45,10 @@
 <div class="conteiner_login">
     <div class="_content-login">
         <div class="_login">
-            <form class="_form_login" action="/login" method="POST" value="login">
+            <form class="_form_login" action="/login" method="POST" name="btn_action" value="login">
                 <div>
                     <label type="email" >E-mail</label>
-                    <input type="email" id="email" placeholder="email@exaple.com" name="username" required>
+                    <input type="text" id="email" placeholder="email@exaple.com" name="email" required>
                 </div>
                 <div class="password-div">
                     <label type="password">Senha</label>
@@ -62,7 +62,7 @@
             </form>
         </div>
         <div class="_login">
-            <form class="_form_createAcc" action="/register" method="POST" value="register">
+            <form class="_form_createAcc" action="/login" method="POST" name="btn_action" value="register">
                 <div>
                     <label class="_form_label" type="email" >E-mail</label>
                     <input type="email" id="emailR" placeholder="email@exaple.com" name="username" required>
@@ -97,6 +97,7 @@
         </p>
     </div>
 </footer>
-    <script src="SCRIPT/script.js"></script>
+    <script src="./SCRIPT/animations.js"></script>
+    <script type="module" src="./SCRIPT/login_and_register.js"></script>
     </body>
 </html>
