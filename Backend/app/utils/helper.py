@@ -32,6 +32,7 @@ def check_input(request):
     password = request.get(PASSWORD_PARAM)
     google_token = request.get(OAUTH_PARAM)
 
+
     # Checa se a entrada é do tipo login tradicional
     if email and password:
         # Se for um email válido, continua, senão marca inválido
