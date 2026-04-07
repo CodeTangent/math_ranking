@@ -1,5 +1,5 @@
 from flask import Blueprint, request, jsonify, redirect, session, url_for
-import requests
+
 from .service import login_user, is_logged_in, check_user, register_user, get_access_token, get_user_info
 from ..utils.config import *
 
@@ -16,6 +16,7 @@ user_blueprint = Blueprint("user", __name__)
 @user_blueprint.route("/", methods=["GET"])
 def homepage():
     return "<h1>Linda Página de Login</h1>"
+
 
 @user_blueprint.route("/login", methods=["GET","POST"])
 def login():
@@ -34,7 +35,8 @@ def login():
         
         # Loga o usuário e retorna se deu certo
         return login_user(request_data)
-        
+
+
 # Rota para registrar um usuário de maneira tradicional
 @user_blueprint.route("/register", methods=["POST"])
 def register():
@@ -85,7 +87,12 @@ def login_google_callback():
         
         # Obtém as informações principais do usuário com o token
         response = get_user_info(access_token, "Google")
-        
-        return response.json()
+
+        google_id = response["sub"]
+   
+
+        # Se tiver conta loga, se não tiver registra umanova
+        login_user(google_id, "google")
+        return response
     
     return "AUTHORIZATION CODE não foi recebido"

@@ -3,7 +3,11 @@ from flask_cors import CORS
 from app.users.routes import user_blueprint
 from app.problems.routes import problems_blueprint
 from app.submissions.routes import submissions_blueprint
+from app.ranking.routes import ranking_blueprint
 from app.utils.config import SECRET_KEY
+
+
+
 def create_app():
     app = Flask(__name__)
     app.secret_key = SECRET_KEY
@@ -12,5 +16,6 @@ def create_app():
     app.register_blueprint(user_blueprint)
     app.register_blueprint(problems_blueprint)
     app.register_blueprint(submissions_blueprint)
+    app.register_blueprint(ranking_blueprint)
 
     return app

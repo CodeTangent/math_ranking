@@ -1,4 +1,5 @@
 import requests
+from model import *
 from flask import redirect, session, jsonify
 from werkzeug.security import generate_password_hash, check_password_hash
 from functools import wraps
@@ -6,10 +7,7 @@ from ..utils.config import *
 from email_validator import validate_email, EmailNotValidError
 from .user_test import validate_user
 
-db = {
-    "email":"opa@gmail.com",
-    "hash":"scrypt:32768:8:1$SRbaynN1oyijm4oa$da0f0e766343f1996ff9b2471cde112c93af416bd3ee791dc9b2367b1ab981ce59917f6b779794b6afc99eeb81f0b789e1ccd07dc0e0ef9944283b67abffef66" 
-}
+
 
 def login_user(data):
     if (
@@ -20,16 +18,6 @@ def login_user(data):
         return {"status": "success"}
     return {"status": "error", "message": "Invalid credentials"}
 
-# Função para pegar o Hash de um email no banco de dados
-def get_db_hash(email):
-    # Enquanto não pega no banco de dados
-    if db["email"] == email:
-        return db["hash"]
-    
-# Função para pegar um determinado email no banco de dados
-def get_db_email(email):
-    if db["email"] == email:
-        return True
 
 # Função para saber se o usuário já está registrado no banco de dados
 def check_user(request_data):
@@ -81,10 +69,10 @@ def get_user_info(code, method=None):
         response = requests.post("https://www.googleapis.com/oauth2/v3/userinfo",headers={
             "authorization": f"Bearer {code}"
         })
-        return response
+        return response.json()
 
 # Função para conferir se a entrada é válida
-def check_input(request):
+def check_input(request,oauth=None):
     
     # Define inválido por padrão
     login = ["Default","Valid"]
@@ -92,7 +80,6 @@ def check_input(request):
     # Procura por algum campo email, senha e google_token
     email = request.get(EMAIL_PARAM)
     password = request.get(PASSWORD_PARAM)
-    google_token = request.get(OAUTH_PARAM)
 
     # Checa se a entrada é o email e senha tradicional 
     if email and password:
@@ -107,7 +94,7 @@ def check_input(request):
             return jsonify({"status_code":"400"})
         
     # Checa se a entrada é oauth do google
-    elif google_token:
+    elif oauth == "google":
         login[0] = "Google"
     else:
         return jsonify({"status_code":"400"})
@@ -149,17 +136,16 @@ def authenticate_user(request, method):
             return {"error":"Email ou senha inválidos."}
     elif method == "Google":
         # Checa se o usuário está no banco de dados
+
         # Se estiver, loga
         # Se não estiver, cria um novo
         ...
 
-# Função para registrar o usuário no banco de dados
+# Função para registrar o usuário no banco de dados (Login Tradicional)
 def register(request_data, request_method):
     email = request_data.get(EMAIL_PARAM)
 
-    if request_method == "google":
-         ...
-    elif request_method == "Default":
+    if request_method == "Default":
         # Checa se está no banco de dados
         if get_db_hash(email):
             return "Já está registrado"
@@ -189,10 +175,10 @@ def register_user(request_data):
     
 
 # Função que realiza o login do usuário
-def login_user(request_data):
+def login_user(request_data, oauth=None):
 
     # Checa se a entrada é válida
-    request_method = check_input(request_data)
+    request_method = check_input(request_data, oauth)
 
     if type(request_method) != list:
         return request_method
