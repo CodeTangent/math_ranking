@@ -41,12 +41,13 @@ def check_user(request_data):
 
 # Função pra saber se o usuário está logado
 def is_logged_in():
-    # Se estiver logado
-    if session["user_id"]:
-        return True
-
-    # Caso contrário
-    return False
+    try:
+        # Se estiver logado
+        if session["user_id"]:
+            return True
+    except:
+        # Caso contrário
+        return False
 
 
 # Função para trocar um código de autorização por um código de autenticação
