@@ -22,7 +22,7 @@ user_blueprint = Blueprint("user", __name__)
 
 @user_blueprint.route("/", methods=["GET"])
 def homepage():
-    return "<h1>Linda Página de Login</h1>"
+    return render_template("Platform/pages/home.html")
 
 
 @user_blueprint.route("/login", methods=["GET", "POST"])
@@ -33,7 +33,7 @@ def login():
             return redirect("/")
 
         # Retorno alterado para render_template, a renderização da página não estava sendo exibida
-        return render_template("login.html")
+        return render_template("Platform/pages/login.html")
 
     elif request.method == "POST":
 
