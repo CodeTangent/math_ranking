@@ -1,5 +1,7 @@
 import random
+
 from .model import problems_mock
+
 
 def spitter_of_sums():
     problems = problems_mock[0]
@@ -12,5 +14,5 @@ def spitter_of_sums():
         "question": question,
         "difficulty": problems["difficulty"],
         "x": value_x,
-        "y": value_y
+        "y": value_y,
     }

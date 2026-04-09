@@ -1,38 +1,45 @@
-from flask import Blueprint, request, jsonify, redirect, session, url_for
-
-from .service import login_user, is_logged_in, check_user, register_user, get_access_token, get_user_info
+from flask import Blueprint, jsonify, redirect, render_template, request, url_for
 from ..utils.config import *
+from .service import (
+    check_user,
+    get_access_token,
+    get_user_info,
+    is_logged_in,
+    login_user,
+    register_user,
+)
 
 user_blueprint = Blueprint("user", __name__)
 
-#@user_blueprint.route("/login", methods=["POST"])
-#def login():
+# @user_blueprint.route("/login", methods=["POST"])
+# def login():
 #    if (data := request.get_json()):
 #        result = login_user(data)
 #        return jsonify(result["status"] == "success")
 #
 #    return jsonify(False)
 
+
 @user_blueprint.route("/", methods=["GET"])
 def homepage():
     return "<h1>Linda Página de Login</h1>"
 
 
-@user_blueprint.route("/login", methods=["GET","POST"])
+@user_blueprint.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
         # Checa se o usuário já está logado
         if is_logged_in():
             return redirect("/")
-        
-        # Se não envia página de login
-        return "Página de login vem aqui"
+
+        # Retorno alterado para render_template, a renderização da página não estava sendo exibida
+        return render_template("login.html")
 
     elif request.method == "POST":
 
         # Recebe a requisição do usuário
         request_data = request.get_json()
-        
+
         # Loga o usuário e retorna se deu certo
         return login_user(request_data)
 
@@ -40,21 +47,20 @@ def login():
 # Rota para registrar um usuário de maneira tradicional
 @user_blueprint.route("/register", methods=["POST"])
 def register():
-    # Recebe a requisição do usuário 
+    # Recebe a requisição do usuário
     request_data = request.get_json()
-    
+
     # Checa se o usuário fornecido já está no banco de dados
     is_valid_response = check_user(request_data)
 
     # Se for o segundo botão de registro, cadastra o usuário.
     if request_data.get("btn_action") == "register_user":
-        
+
         # Tenta registrar o usuário e retorna se deu certo
         return register_user(request_data)
-    
+
     # Retorna se a entrada é válida
     return is_valid_response
-    
 
 
 # Rota para autorizar o login do oauth Google
@@ -71,28 +77,26 @@ def login_google_authorize():
     # Se der tudo certo, envia para a página de autorização
     return redirect(auth_url)
 
-    
-    
+
 # Receber a resposta da autorização de login do Google
-@user_blueprint.route("/callback/google",methods=["GET","POST"])
+@user_blueprint.route("/callback/google", methods=["GET", "POST"])
 def login_google_callback():
-    
+
     # Recebe o código de autorização
     auth_code = request.args.get("code")
-    
+
     # Se recebeu esse código
     if auth_code:
         # Envia para o authentication server para pegar o acess token
         access_token = get_access_token(auth_code, "Google")
-        
+
         # Obtém as informações principais do usuário com o token
         response = get_user_info(access_token, "Google")
 
         google_id = response["sub"]
-   
 
         # Se tiver conta loga, se não tiver registra umanova
         login_user(google_id, "google")
         return response
-    
+
     return "AUTHORIZATION CODE não foi recebido"

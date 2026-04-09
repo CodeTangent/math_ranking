@@ -1,5 +1,6 @@
 from connect import get_connection
 
+
 def get_ranking():
     try:
         connection = get_connection()

@@ -1,6 +1,7 @@
-from flask import Flask
-from dotenv import load_dotenv
 import os
+
+from dotenv import load_dotenv
+from flask import Flask
 
 # Carregar variáveis do .env
 load_dotenv()
@@ -15,7 +16,7 @@ SECRET_KEY = os.getenv("SECRET_KEY")
 EMAIL_PARAM = "email"
 PASSWORD_PARAM = "password"
 
-#Parâmetros do login Oauth
+# Parâmetros do login Oauth
 OAUTH_PARAM = ""
 
 # Váriaáveis que identificam o projeto no Google Bloud

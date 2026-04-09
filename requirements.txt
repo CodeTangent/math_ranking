@@ -1,0 +1,24 @@
+black==26.3.1 #padroniza o código - Usado para formatação de código
+blinker==1.9.0 #sinaliza eventos - Usado para comunicação entre componentes
+certifi==2026.2.25 #certificados - Usado pelo requests
+charset-normalizer==3.4.7 #normaliza charset - Usado pelo requests
+click==8.3.2 #interface de linha de comando - Usado para criar interfaces de linha de comando
+dnspython==2.8.0 #resolução de DNS - Usado para consultas DNS
+dotenv==0.9.9 #variáveis de ambiente - Usado para carregar variáveis de ambiente
+email-validator==2.3.0 #validação de email - Usado para validar endereços de email
+Flask==3.1.3 #framework web - Usado para construir aplicações web
+flask-cors==6.0.2 #suporte a CORS - Usado para habilitar CORS em aplicações Flask
+idna==3.11 #suporte a IDN - Usado para suporte a nomes de domínio internacionalizados
+isort==8.0.1 #organização de imports - Usado para organizar imports
+itsdangerous==2.2.0 #geração de tokens seguros - Usado para gerar tokens seguros
+Jinja2==3.1.6 #motor de templates - Usado para renderizar templates
+MarkupSafe==3.0.3 #proteção contra XSS - Usado para proteger contra XSS
+mypy_extensions==1.1.0 #extensões para o mypy - Usado para extensões do mypy
+packaging==26.0 #empacotamento de projetos - Usado para empacotar projetos Python
+pathspec==1.0.4 #especificação de caminhos - Usado para especificar padrões de caminhos
+platformdirs==4.9.6 #diretórios da plataforma - Usado para manipular diretórios da plataforma
+python-dotenv==1.2.2 #carregamento de variáveis de ambiente - Usado para carregar variáveis de ambiente
+pytokens==0.4.1 #gerenciamento de tokens - Usado para gerenciar tokens
+requests==2.33.1 #fazer requisições HTTP - Usado para fazer requisições HTTP
+urllib3==2.6.3 #manipulação de URLs - Usado para manipulação de URLs
+Werkzeug==3.1.8 #utilitários WSGI - Usado pelo Flask

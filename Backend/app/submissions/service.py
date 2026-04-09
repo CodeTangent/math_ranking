@@ -1,4 +1,3 @@
-
 def validate_submission(data):
     try:
         x = int(data.get("x"))
@@ -10,10 +9,9 @@ def validate_submission(data):
             "is_correct": False,
             "correct_answer": None,
             "difficulty": None,
-            "error": "Invalid input"
-
+            "error": "Invalid input",
         }
-    
+
     correct_answer = x + y
     is_correct = answer == correct_answer
 
@@ -21,5 +19,5 @@ def validate_submission(data):
         "is_correct": is_correct,
         "correct_answer": correct_answer if not is_correct else None,
         "difficulty": data.get("difficulty", "unknown"),
-        "error": None
+        "error": None,
     }

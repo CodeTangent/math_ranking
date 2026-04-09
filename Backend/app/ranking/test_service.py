@@ -27,19 +27,14 @@ def get_ranking():
 
         if resultados := cursor.fetchall():
             for i in resultados:
-                ranking.append({
-                    "nick": i[0],
-                    "curso": i[1],
-                    "pontos": i[2],
-                    "posicao": i[3]
-                })
+                ranking.append(
+                    {"nick": i[0], "curso": i[1], "pontos": i[2], "posicao": i[3]}
+                )
         return ranking
 
     except Exception as e:
-        return {
-            "Erro": str(e)
-        }
-        
+        return {"Error": str(e)}
+
     finally:
         if cursor:
             cursor.close()
