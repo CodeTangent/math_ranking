@@ -86,11 +86,15 @@ def check_input(request, oauth=None):
 
     # Define inválido por padrão
     login = ["Default", "Valid"]
-
+    print(request)
     # Procura por algum campo email, senha e google_token
-    email = request.get(EMAIL_PARAM)
-    password = request.get(PASSWORD_PARAM)
-
+    try:
+        email = request.get(EMAIL_PARAM)
+        password = request.get(PASSWORD_PARAM)
+    except:
+        email = None
+        password = None
+        pass
     # Checa se a entrada é o email e senha tradicional
     if email and password:
         # Se for um email válido, continua, senão marca inválido
@@ -141,16 +145,15 @@ def authenticate_user(request, method):
         user_db_hash = get_db_hash(email)
 
         # Se o hash existir, compara, senão retorna
-
+        
         if user_db_hash and check_password_hash(user_db_hash, senha):
             session["user_id"] = email
             return {"success": "Usuário autenticado."},200
         else:
             
             return {"error": "Email ou senha inválidos."},400
-    elif method == "Google":
+    elif method[0] == "Google":
         # Checa se o usuário está no banco de dados
-
         # Se estiver, loga
         # Se não estiver, cria um novo
         ...
@@ -199,5 +202,6 @@ def login_user(request_data, oauth=None):
    
     # Autentica o usuário com o método e os dados de entrada
     resposta = authenticate_user(request_data, request_method)
+    
     # Retorna o resultado
     return jsonify(resposta[0]), resposta[1]
