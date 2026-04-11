@@ -1,4 +1,4 @@
-from ..database.connect import get_connection
+from app.database.connect import get_connection
 
 
 def get_ranking():
@@ -40,3 +40,8 @@ def get_ranking():
             cursor.close()
         if connection:
             connection.close()
+
+#ajuda a debugar o codigo aparecendo tudo no terminal
+if __name__ == "__main__":
+    resultado = get_ranking()
+    print(resultado)

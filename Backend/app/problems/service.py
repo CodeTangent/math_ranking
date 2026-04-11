@@ -1,18 +1,17 @@
-import random
-
-from .model import problems_mock
+from .model import CreatorSumProblem
 
 
-def spitter_of_sums():
-    problems = problems_mock[0]
-    value_x = random.randint(0, 9)
-    value_y = random.randint(0, 9)
-    question = problems["question"].format(value_x, value_y)
+def spitter_of_sums(difficulty):
+    try:
+        problem = CreatorSumProblem(difficulty)
+        return problem.generate()
 
-    return {
-        "id": problems["id"],
-        "question": question,
-        "difficulty": problems["difficulty"],
-        "x": value_x,
-        "y": value_y,
-    }
+    except ValueError:
+        return {
+            "operation": None,
+            "x": None,
+            "y": None,
+            "difficulty": None,
+            "error": "Invalid difficulty",
+        }
+    
