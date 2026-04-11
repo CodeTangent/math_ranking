@@ -1,8 +1,10 @@
+# valida a submissão garantindo a veracidade dos valores e operador recebido
 def validate_submission(data):
     try:
         x = int(data.get("x"))
         y = int(data.get("y"))
         answer = int(data.get("answer"))
+        operation = data.get("operation")
 
     except (ValueError, TypeError):
         return {
@@ -11,8 +13,22 @@ def validate_submission(data):
             "difficulty": None,
             "error": "Invalid input",
         }
+    # valida se o operador recebido é válido
+    if operation != "+":
+        return {
+            "is_correct": False,
+            "correct_answer": None,
+            "difficulty": None,
+            "error": "Invalid operation",
+        }
 
-    correct_answer = x + y
+    if operation == "+":
+        correct_answer = x + y
+    
+    # 
+    # aqui ainda será criada uma condicional para validar a integridade
+    # ainda não compreendi como utilizar eficientemente a função built-in isinstance (validação do tipo dos valores)
+    #
     is_correct = answer == correct_answer
 
     return {

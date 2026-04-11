@@ -7,9 +7,7 @@ submissions_blueprint = Blueprint("submissions", __name__)
 
 @submissions_blueprint.route("/submit", methods=["POST"])
 def submit():
-    data = request.get_json()
-
-    if not data:
+    if not (data := request.get_json()):
         return jsonify(
             {
                 "is_correct": False,
@@ -17,8 +15,11 @@ def submit():
                 "difficulty": None,
                 "error": "No data provided",
             }
-        )
+        ), 400
 
     result = validate_submission(data)
+
+    if result.get("error"):
+        return jsonify(result), 400
 
     return jsonify(result)
