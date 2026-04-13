@@ -1,4 +1,4 @@
-from flask import Blueprint, jsonify, redirect, render_template, request, url_for
+from flask import Blueprint, session, jsonify, redirect, render_template, request, url_for
 from ..utils.config import *
 from .service import (
     check_user,
@@ -8,9 +8,10 @@ from .service import (
     login_user,
     register_user,
 )
+from .model import db_test
 
 user_blueprint = Blueprint("user", __name__)
-
+db_test()
 # @user_blueprint.route("/login", methods=["POST"])
 # def login():
 #    if (data := request.get_json()):
@@ -52,6 +53,16 @@ def login():
         # Loga o usuário e retorna se deu certo
         return login_user(request_data)
 
+@user_blueprint.route("/logout", methods=["GET"])
+def logout():
+    try:
+
+        if session["user_id"]:
+            session.clear()
+
+        return redirect("/team")
+    except:
+        return redirect("/")
 
 # Rota para registrar um usuário de maneira tradicional
 @user_blueprint.route("/register", methods=["POST"])
