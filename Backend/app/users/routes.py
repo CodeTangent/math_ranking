@@ -20,44 +20,49 @@ db_test()
 #
 #    return jsonify(False)
 
-
+# Rota para a homepage
 @user_blueprint.route("/", methods=["GET"])
 def homepage():
     if is_logged_in():
-        return render_template("Platform/pages/home.html")
-    return render_template("Site/index.html")
+        return render_template(HOME_URL)
+    return render_template(INDEX_URL)
 
+# Rota para apresentação do time
 @user_blueprint.route("/team", methods=["GET"])
 def team():
-    return render_template("Site/team.html")
+    return render_template(TEAM_URL)
 
+# Rota para o sobre do projeto
 @user_blueprint.route("/about", methods=["GET"])
 def about():
-    return render_template("Site/about.html")
+    return render_template(ABOUT_URL)
 
-# João aqui defini as rotas abaixo pra ir testando o front, não sei se está certo, qualquer coisa apagar ela ou mover. 
-# plataforma.
+# Rota paa o perfil do usuário
 @user_blueprint.route("/perfil", methods=["GET"])
 def perfil():
-    return render_template("Platform/pages/perfil.html")
+    return render_template(PERFIL_URL)
 
+# Rota para a tabela de classificação
 @user_blueprint.route("/leaderboard", methods=["GET"])
 def leaderboard():
-    return render_template("Platform/pages/leaderboard.html")
+    return render_template(LEADERBOARD_URL)
 
+# Rota para as configurações
 @user_blueprint.route("/settings", methods=["GET"])
 def settings():
-    return render_template("Platform/pages/settings.html")
+    return render_template(SETTINGS_URL)
 
+# Rota da os desafios
 @user_blueprint.route("/challenges", methods=["GET"])
 def challenges():
-    return render_template("Platform/pages/challenges.html")
+    return render_template(CHALLENGES_URL)
 
 # Especificamente dos estudos.
 @user_blueprint.route("/summStudy", methods=["GET"])
 def summStudy():
-    return render_template("Platform/pages/prop/summ.html")
+    return render_template(SUMM_URL)
 
+# Rota para login do usuário
 @user_blueprint.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "GET":
@@ -66,7 +71,7 @@ def login():
             return redirect("/")
 
         # Retorno alterado para render_template, a renderização da página não estava sendo exibida
-        return render_template("Platform/pages/login.html")
+        return render_template(LOGIN_URL)
 
     elif request.method == "POST":
 
@@ -76,6 +81,7 @@ def login():
         # Loga o usuário e retorna se deu certo
         return login_user(request_data)
 
+# Rota para logout do usuário
 @user_blueprint.route("/logout", methods=["GET"])
 def logout():
     try:
