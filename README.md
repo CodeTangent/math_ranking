@@ -90,12 +90,12 @@ Comecei estudando tecnologia como HTML, CSS and JavaScript. Senti mais afinidade
 [Github](https://github.com/vini0112) - [LinkedIn](https://www.linkedin.com/in/vin%C3%ADcius-silva-26b715321)
 
 ## Funcionalidades - MVP (Minimum Viable Product)
-    - ✅Modelagem do banco de dados
+    - ✅Modelagem do banco de dados;
     - ✅Cadastro de usuários;
     - ✅Login;
     - ✅Listagem de desafios matemáticos;
     - ✅Submissão de respostas;
-    - ✅Sistema de ranking; e
-    - ✅Histórico de resoluções.
+    - ✅Sistema de ranking;
+    - ✅Histórico de resoluções;
 
 
